@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "debug": ""
+    "debug": "tsc-watch --onSuccess \"node build/main.js\""
   },
   "repository": {
     "type": "git",
@@ -17,5 +17,13 @@
   "bugs": {
     "url": "https://github.com/coffee-disposal/anti-struck/issues"
   },
-  "homepage": "https://github.com/coffee-disposal/anti-struck#readme"
+  "homepage": "https://github.com/coffee-disposal/anti-struck#readme",
+  "dependencies": {
+    "discord.js": "^12.5.3",
+    "mongoose": "^5.12.14"
+  },
+  "devDependencies": {
+    "tsc": "^2.0.3",
+    "tsc-watch": "^4.4.0"
+  }
 }

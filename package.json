@@ -1,0 +1,21 @@
+{
+  "name": "anti-struck",
+  "version": "1.0.0",
+  "description": "A Discord bot for the Wonder Land server and other related servers.",
+  "main": "index.js",
+  "scripts": {
+    "build": "tsc",
+    "debug": ""
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/coffee-disposal/anti-struck.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/coffee-disposal/anti-struck/issues"
+  },
+  "homepage": "https://github.com/coffee-disposal/anti-struck#readme"
+}

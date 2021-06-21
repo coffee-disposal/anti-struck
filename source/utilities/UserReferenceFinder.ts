@@ -1,11 +1,12 @@
-import { Client, User } from "discord.js";
+import { User } from "discord.js";
+import AntiClient from "./AntiClient";
 import regexes from "./UserReferenceRegexes";
 
 export class UserReferenceFinder {
     private _strings: string[];
-    private _client: Client;
+    private _client: AntiClient;
 
-    constructor(client : Client, args: string[]) {
+    constructor(client : AntiClient, args: string[]) {
         this._strings = args;
         this._client = client;
     }

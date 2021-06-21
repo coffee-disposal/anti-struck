@@ -5,7 +5,8 @@
   "main": "index.js",
   "scripts": {
     "build": "tsc",
-    "debug": "tsc-watch --onSuccess \"node build/main.js\""
+    "debug": "tsc-watch --onSuccess \"node build/main.js\"",
+    "dev": "nodemon"
   },
   "repository": {
     "type": "git",
@@ -13,16 +14,19 @@
   },
   "keywords": [],
   "author": "",
-  "license": "ISC",
+  "license": "MIT",
   "bugs": {
     "url": "https://github.com/coffee-disposal/anti-struck/issues"
   },
   "homepage": "https://github.com/coffee-disposal/anti-struck#readme",
   "dependencies": {
     "discord.js": "^12.5.3",
+    "dotenv": "^10.0.0",
     "mongoose": "^5.12.14"
   },
   "devDependencies": {
+    "nodemon": "^2.0.7",
+    "ts-node": "^10.0.0",
     "tsc": "^2.0.3",
     "tsc-watch": "^4.4.0"
   }

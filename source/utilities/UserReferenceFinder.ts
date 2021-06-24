@@ -6,14 +6,14 @@ export class UserReferenceFinder {
     private _strings: string[];
     private _client: AntiClient;
 
-    constructor(client : AntiClient, args: string[]) {
+    constructor(client: AntiClient, args: string[]) {
         this._strings = args;
         this._client = client;
     }
 
-    findMemberReferences() : User[] {
+    public findMemberReferences(): User[] {
         const EMPTY_USER = new User(this._client, {});
-        const users : User[] = [];
+        const users: User[] = [];
 
         this._strings.forEach(arg => {
             if (this.returnReferenceIn(arg))
@@ -23,7 +23,7 @@ export class UserReferenceFinder {
         return users;
     }
 
-    private returnReferenceIn(memberString: string) : User | undefined {
+    private returnReferenceIn(memberString: string): User | undefined {
         if (regexes.USER_TAG.test(memberString)) {
             return this._client.users.cache.find(user => `${user.username}#${user.tag}` == memberString);
         }

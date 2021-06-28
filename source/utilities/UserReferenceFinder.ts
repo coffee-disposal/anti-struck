@@ -1,4 +1,4 @@
-import { User } from "discord.js";
+import {User} from "discord.js";
 import AntiClient from "./AntiClient";
 import regexes from "./UserReferenceRegexes";
 

@@ -38,8 +38,8 @@ export default class AntiClient extends Client {
             for (let i = 0; i < events.length; i++) {
                 // ! Death inducing code ahead ! \\
                 const path: string = `..${events[i].replace("build", "")}`,
-                      event: Event = require(path),
-                      instance: Event = new (event[Object.keys(event)[0]])();
+                    event: Event = require(path),
+                    instance: Event = new (event[Object.keys(event)[0]])();
 
                 this.events.set(instance.name, instance);
                 this.on(instance.name, instance.execute.bind(instance, this));

@@ -1,5 +1,7 @@
 {
-    "watch": ["source"],
-    "ext": "ts,json",
-    "exec": "ts-node ./source/main.ts"
+  "watch": [
+    "source"
+  ],
+  "ext": "ts,json",
+  "exec": "ts-node ./source/main.ts"
 }

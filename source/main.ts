@@ -1,5 +1,5 @@
 import AntiClient from "./utilities/AntiClient";
-import { config as _envConfig } from "dotenv";
+import {config as _envConfig} from "dotenv";
 
 _envConfig();
 

@@ -1,10 +1,10 @@
-import { Command } from "../structures/Command";
-import { Event } from "../structures/Event";
-import { Client } from "discord.js";
+import {Command} from "../structures/Command";
+import {Event} from "../structures/Event";
+import {Client, Collection} from "discord.js";
 
 export default class AntiClient extends Client {
-    public commands: Command[] = [];
-    public events: Event[] = [];
+    public commands = new Collection<string, Command>();
+    public events = new Collection<string, Event>();
 
     constructor(commands: boolean = true, events: boolean = true) {
         super();
@@ -27,16 +27,23 @@ export default class AntiClient extends Client {
                     let command = require(`..${commands[j].replace("build", "")}`);
                     command.category = category;
 
-                    this.commands.push(command);
+                    this.commands.set(command.name, command);
                 }
             }
         }
 
-        console.log("Commands Loaded:");
-        console.log(this.commands);
-
         if (events) {
+            const events = glob.sync("build/events/**/*.js");
 
+            for (let i = 0; i < events.length; i++) {
+                // ! Death inducing code ahead ! \\
+                const path: string = `..${events[i].replace("build", "")}`,
+                      event: Event = require(path),
+                      instance: Event = new (event[Object.keys(event)[0]])();
+
+                this.events.set(instance.name, instance);
+                this.on(instance.name, instance.execute.bind(instance, this));
+            }
         }
     }
 }

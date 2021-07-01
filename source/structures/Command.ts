@@ -1,4 +1,5 @@
-import {Client, Message, PermissionFlags} from "discord.js";
+import {Message, PermissionFlags} from "discord.js";
+import AntiClient from "../utilities/AntiClient";
 
 export class Command {
     public name: string;
@@ -15,7 +16,7 @@ export class Command {
         this.permissions = permissions;
     }
 
-    public run(client: Client, message: Message, args: string[]) {
+    public run(client: AntiClient, message: Message, args: string[]) {
         throw new Error("Command.ts: NotImplementedException: You didn't implement the \"execute\" method.");
     }
 }

@@ -1,4 +1,4 @@
-import {Client} from "discord.js";
+import AntiClient from "../utilities/AntiClient";
 
 export class Event {
     public name: string;
@@ -7,7 +7,7 @@ export class Event {
         this.name = name;
     }
 
-    execute(client: Client, ...args: any) {
+    execute(client: AntiClient, ...args: any) {
         throw new Error("Event.ts: NotImplementedException: You didn't implement the \"execute\" method.");
     }
 }

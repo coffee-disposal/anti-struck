@@ -9,7 +9,7 @@ export class Command {
     public permissions: PermissionFlags[];
     public developer: boolean;
 
-    constructor(name: string, category: string, aliases: string[] = [], description: string, permissions: PermissionFlags[], developer: boolean) {
+    constructor(name: string, category: string = "INVISIBLE", aliases: string[] = [], description: string, permissions: PermissionFlags[], developer: boolean) {
         this.name = name;
         this.category = category;
         this.aliases = aliases;
@@ -18,7 +18,7 @@ export class Command {
         this.developer = developer;
     }
 
-    public run(client: AntiClient, message: Message, args: string[]) {
+    public async run(client: AntiClient, message: Message, args: string[]) {
         throw new Error("Command.ts: NotImplementedException: You didn't implement the \"execute\" method.");
     }
 }

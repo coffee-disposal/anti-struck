@@ -1,7 +1,6 @@
-import MessageEmbedGenerator from "../structures/MessageEmbedGenerator";
-import AntiClient from "../utilities/AntiClient";
-import { Command } from "../structures/Command";
-import { Message } from "discord.js";
+import AntiClient from "../../utilities/AntiClient";
+import { Command } from "../../structures/Command";
+import { Message, MessageEmbed } from "discord.js";
 
 export = new (class InvokeError extends Command {
     constructor() {
@@ -10,8 +9,7 @@ export = new (class InvokeError extends Command {
 
     public async run(client: AntiClient, message: Message, args: string[]) {
         const { title, description, color } = JSON.parse(args[0]);
-
-        const embed = MessageEmbedGenerator.generate({
+        const embed: MessageEmbed = new MessageEmbed({
             title: title,
             description: description,
             color: color,

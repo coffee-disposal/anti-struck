@@ -20,12 +20,12 @@ export class UserReferenceFinder {
                 users.push(this.returnReferenceIn(arg) || EMPTY_USER);
         });
 
-        return users;
+        return users || null;
     }
 
-    private returnReferenceIn(memberString: string): User | undefined {
+    public returnReferenceIn(memberString: string): User | undefined {
         if (regexes.USER_TAG.test(memberString)) {
-            return this._client.users.cache.find(user => `${user.username}#${user.tag}` == memberString);
+            return this._client.users.cache.find(user => user.tag == memberString);
         }
 
         if (regexes.USER_MENTION.test(memberString)) {
@@ -36,6 +36,6 @@ export class UserReferenceFinder {
             return this._client.users.cache.get(memberString);
         }
 
-        return undefined;
+        return null;
     }
 }
